@@ -8,7 +8,7 @@ from logo import logo
 
 
 def main():
-    apiKey = "Insert your own key"
+    apiKey = "use your own"
 
     try:
         coins = float(input("BTC owened: "))
@@ -17,12 +17,7 @@ def main():
     except ValueError:
         print("\nERROR!\nOnly enter numbers\nPlease try again")
         sys.exit(1)
-    rate = getRate(apiKey)
-    value = portfolioValue(coins, rate)
-    cost = portfolioCost(coins, avg)
-    roi = calcROI(value, cost)
-    dcaAmount = dcaYield(dca, rate)
-    printPortfolio(value, cost, dcaAmount)
+    printPortfolio(apiKey, coins, avg, dca)
 
 
 def clearScreen():
@@ -82,10 +77,15 @@ def dcaYield(dca, rate):
         sys.exit(1)
 
 
-def printPortfolio(value, cost, dcaAmount):
+def printPortfolio(apiKey, coins, avg, dca):
     try:
         while True:
             clearScreen()
+            rate = getRate(apiKey)
+            value = portfolioValue(coins, rate)
+            cost = portfolioCost(coins, avg)
+            roi = calcROI(value, cost)
+            dcaAmount = dcaYield(dca, rate)
             winLoss = value - cost
             data = Data([[cost], [value], [winLoss]], [
                         "Portfolio Cost", "Portfolio Value", "Portfolio Yield"])
