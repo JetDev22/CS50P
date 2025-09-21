@@ -1,2 +1,3 @@
 # CS50P
-CS50 Python Course
+
+<img width="800px" src="CS50P.png">
