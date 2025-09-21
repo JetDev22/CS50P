@@ -16,4 +16,4 @@ except requests.RequestException:
 
 answer = getPrice.json()
 price = float(answer["data"]["priceUsd"])
-print(f"${(price*bitcoin):,.4f}", end="")
+# print(f"${(price*bitcoin:quit()tcoin):,.4f}", end="")
